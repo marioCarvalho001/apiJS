@@ -1,9 +1,8 @@
-function tempo(request, response){
-  const dynamicDate =  new Date();
+function reqListener () {
+  console.log(this.responseText);
+};
 
-  response.json({
-    date: dynamicDate.toGMTSstring()
-  })
-}
-
-export default tempo;
+var oReq = new XMLHttpRequest();
+oReq.onload = reqListener;
+oReq.open("get", "yourFile.txt", true);
+oReq.send();
